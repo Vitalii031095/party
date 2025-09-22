@@ -77,8 +77,8 @@ app.post("/callback", async (req, res) => {
     res.sendStatus(500);
   }
 });
- const PORT = process.env.PORT||3000
-app.listen("https://party-bc5g.onrender.com", () => {
+ const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
   console.log("Server running on http://localhost:3000");
 });
 
