@@ -29,9 +29,7 @@ app.post("/test-post", (req, res) => {
 app.get("/create-payment", (req, res) => {
   res.send("GET works");
 });
-app.post("/create-payment", async (req, res) => {
-	res.json({ paymentUrl: "https://test.example.com/payment-success" });
-})
+
 app.post("/create-payment", async (req, res) => {
   try {
     const response = await axios.post(
