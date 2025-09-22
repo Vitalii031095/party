@@ -15,6 +15,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 1️⃣ Створюємо замовлення
+app.get("/create-payment", (req, res) => {
+  res.send("GET works");
+});
 app.post("/create-payment", async (req, res) => {
   try {
     const response = await axios.post(
