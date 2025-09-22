@@ -9,7 +9,7 @@ const path = require("path");
 
 const app = express();
 app.use(cors({
-	origin: 'http://127.0.0.1:5500'
+  origin: 'https://party.marsof.pp.ua'
 }))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
