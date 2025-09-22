@@ -1,1 +1,15 @@
+# Node.js
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dotenv
+.env
+
+# VSCode (якщо ти використовуєш)
+.vscode/
+
+# OS файли
+.DS_Store
+Thumbs.db

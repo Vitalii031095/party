@@ -8,7 +8,9 @@ const path = require("path");
 
 
 const app = express();
-app.use(cors())
+app.use(cors({
+	origin: 'http://127.0.0.1:5500'
+}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -17,6 +19,7 @@ app.post("/create-payment", async (req, res) => {
   try {
     const response = await axios.post(
       "https://app.paymento.io/api/v1/payments",
+		
       {
         amount: 333,
         currency: "USDT",
@@ -74,11 +77,12 @@ app.post("/callback", async (req, res) => {
     res.sendStatus(500);
   }
 });
-
-app.listen(3000, () => {
+ const PORT = process.env.PORT||3000
+app.listen(PORT, () => {
   console.log("Server running on http://localhost:3000");
 });
 
+// echo "# party" >> README.md
 // git init
 // git add README.md
 // git commit -m "first commit"
