@@ -22,7 +22,7 @@ app.get("/env-check", (req, res) => {
     DECLINE_URL: process.env.DECLINE_URL,
   });
 });
-1️⃣ Створюємо замовлення
+// 1️⃣ Створюємо замовлення
 app.post("/test-post", (req, res) => {
   res.json({ message: "POST works" });
 });
