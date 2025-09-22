@@ -15,6 +15,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 1️⃣ Створюємо замовлення
+app.post("/test-post", (req, res) => {
+  res.json({ message: "POST works" });
+});
 app.get("/create-payment", (req, res) => {
   res.send("GET works");
 });
@@ -82,6 +85,6 @@ app.post("/callback", async (req, res) => {
 });
  const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
-  console.log(console.log(`Server running on http://localhost:${PORT}`));
+  console.log((`Server running on http://localhost:${PORT}`));
 });
 
