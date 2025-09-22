@@ -22,47 +22,47 @@ app.get("/env-check", (req, res) => {
     DECLINE_URL: process.env.DECLINE_URL,
   });
 });
-// 1️⃣ Створюємо замовлення
-// app.post("/test-post", (req, res) => {
-//   res.json({ message: "POST works" });
-// });
-// app.get("/create-payment", (req, res) => {
-//   res.send("GET works");
-// });
+1️⃣ Створюємо замовлення
+app.post("/test-post", (req, res) => {
+  res.json({ message: "POST works" });
+});
+app.get("/create-payment", (req, res) => {
+  res.send("GET works");
+});
 app.post("/create-payment", async (req, res) => {
 	res.json({ paymentUrl: "https://test.example.com/payment-success" });
 })
-// app.post("/create-payment", async (req, res) => {
-//   try {
-//     const response = await axios.post(
-//       "https://app.paymento.io/api/v1/payments",
+app.post("/create-payment", async (req, res) => {
+  try {
+    const response = await axios.post(
+      "https://app.paymento.io/api/v1/payments",
 		
-//       {
-//         amount: 333,
-//         currency: "USDT",
-//         description: "Crypto Party Ticket",
-//         callback_url: process.env.CALLBACK_URL,
-//         success_url: process.env.SUCCESS_URL,
-//         decline_url: process.env.DECLINE_URL,
-//       },
-//       {
-//         headers: {
-//           Authorization: `Bearer ${process.env.PAYMENTO_API_KEY}`,
-//           "Content-Type": "application/json",
-//         },
-//       }
-//     );
+      {
+        amount: 333,
+        currency: "USDT",
+        description: "Crypto Party Ticket",
+        callback_url: process.env.CALLBACK_URL,
+        success_url: process.env.SUCCESS_URL,
+        decline_url: process.env.DECLINE_URL,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.PAYMENTO_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-//     // Отримали токен від Paymento
-//     const token = response.data.token;
-//     res.json({
-//       paymentUrl: `https://app.paymento.io/gateway?token=${token}`,
-//     });
-//   } catch (error) {
-//     console.error("Payment creation failed:", error.response?.data || error.message);
-//     res.status(500).json({ error: "Payment creation failed" });
-//   }
-// });
+    // Отримали токен від Paymento
+    const token = response.data.token;
+    res.json({
+      paymentUrl: `https://app.paymento.io/gateway?token=${token}`,
+    });
+  } catch (error) {
+    console.error("Payment creation failed:", error.response?.data || error.message);
+    res.status(500).json({ error: "Payment creation failed" });
+  }
+});
 
 // 2️⃣ Callback від Paymento
 app.post("/callback", async (req, res) => {
