@@ -15,12 +15,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 1️⃣ Створюємо замовлення
-app.post("/test-post", (req, res) => {
-  res.json({ message: "POST works" });
-});
-app.get("/create-payment", (req, res) => {
-  res.send("GET works");
-});
+// app.post("/test-post", (req, res) => {
+//   res.json({ message: "POST works" });
+// });
+// app.get("/create-payment", (req, res) => {
+//   res.send("GET works");
+// });
 app.post("/create-payment", async (req, res) => {
   try {
     const response = await axios.post(
