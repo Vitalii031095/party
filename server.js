@@ -79,13 +79,6 @@ app.post("/callback", async (req, res) => {
 });
  const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
-  console.log("Server running on http://localhost:3000");
+  console.log(console.log(`Server running on http://localhost:${PORT}`));
 });
 
-// echo "# party" >> README.md
-// git init
-// git add README.md
-// git commit -m "first commit"
-// git branch -M main
-// git remote add origin git@github.com:Vitalii031095/party.git
-// git push -u origin main
