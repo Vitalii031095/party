@@ -14,24 +14,25 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/env-check", (req, res) => {
-  res.json({
-    PAYMENTO_API_KEY: process.env.PAYMENTO_API_KEY ? "✅ SET" : "❌ MISSING",
-    CALLBACK_URL: process.env.CALLBACK_URL,
-    SUCCESS_URL: process.env.SUCCESS_URL,
-    DECLINE_URL: process.env.DECLINE_URL,
-  });
-});
+// app.get("/env-check", (req, res) => {
+//   res.json({
+//     PAYMENTO_API_KEY: process.env.PAYMENTO_API_KEY ? "✅ SET" : "❌ MISSING",
+//     CALLBACK_URL: process.env.CALLBACK_URL,
+//     SUCCESS_URL: process.env.SUCCESS_URL,
+//     DECLINE_URL: process.env.DECLINE_URL,
+//   });
+// });
 // 1️⃣ Створюємо замовлення
-app.post("/test-post", (req, res) => {
-  res.json({ message: "POST works" });
-});
-app.get("/create-payment", (req, res) => {
-  res.send("GET works");
-});
+// app.post("/test-post", (req, res) => {
+//   res.json({ message: "POST works" });
+// });
+// app.get("/create-payment", (req, res) => {
+//   res.send("GET works");
+// });
 
 app.post("/create-payment", async (req, res) => {
   try {
+	console.log("start")
     const response = await axios.post(
       "https://app.paymento.io/api/v1/payments",
 		
@@ -52,6 +53,7 @@ app.post("/create-payment", async (req, res) => {
     );
 
     // Отримали токен від Paymento
+	 console.log("start1")
     const token = response.data.token;
     res.json({
       paymentUrl: `https://app.paymento.io/gateway?token=${token}`,
