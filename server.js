@@ -14,6 +14,14 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/env-check", (req, res) => {
+  res.json({
+    PAYMENTO_API_KEY: process.env.PAYMENTO_API_KEY ? "✅ SET" : "❌ MISSING",
+    CALLBACK_URL: process.env.CALLBACK_URL,
+    SUCCESS_URL: process.env.SUCCESS_URL,
+    DECLINE_URL: process.env.DECLINE_URL,
+  });
+});
 // 1️⃣ Створюємо замовлення
 // app.post("/test-post", (req, res) => {
 //   res.json({ message: "POST works" });
