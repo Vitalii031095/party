@@ -81,8 +81,9 @@ app.post("/create-invoice", async (req, res) => {
     if (result.status === 'error') {
       return res.status(400).json({ error: result.message[0] });
     }
+res.json({ paymentUrl: result.message }); // <-- саме цей URL очікує фронт
 
-    res.json({ message: result.message, invoice: result.data });
+   //  res.json({ message: result.message, invoice: result.data });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to create invoice" });
