@@ -59,12 +59,12 @@ app.post("/create-invoice", async (req, res) => {
       public_key: process.env.PAYID19_PUBLIC_KEY,
       private_key: process.env.PAYID19_PRIVATE_KEY,
       email: req.body.email,
-      price_amount: 333,
+      price_amount: 1,
       price_currency:  "USD",
       merchant_id: 5,
       order_id: `order-${Date.now()}`,
       customer_id: Number(Date.now().toString().slice(0, 11)),
-		test: 1,  // тільки для тестув
+		test: 0,  // тільки для тестув
       title: "Crypto Night Ticket",
       description: "Ticket for private crypto event",
       add_fee_to_price: 1,
