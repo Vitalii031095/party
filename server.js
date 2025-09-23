@@ -63,7 +63,7 @@ app.post("/create-invoice", async (req, res) => {
       price_currency:  "USD",
       merchant_id: 5,
       order_id: `order-${Date.now()}`,
-       customer_id: Date.now(), 
+       customer_id: req.body.email, 
 
       test: 1,  // тільки для тестув
       title: "Crypto Night Ticket",
@@ -86,9 +86,15 @@ res.json({ paymentUrl: result.message }); // <-- саме цей URL очіку�
 
    //  res.json({ message: result.message, invoice: result.data });
   } catch (error) {
+  if (error.response && error.response.data) {
+    console.error("API error response:", error.response.data);
+    res.status(500).json({ error: error.response.data.message || "Failed to create invoice" });
+  } else {
     console.error(error);
     res.status(500).json({ error: "Failed to create invoice" });
   }
+}
+
 });
 
 
