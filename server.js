@@ -63,7 +63,7 @@ app.post("/create-invoice", async (req, res) => {
       price_currency:  "USD",
       merchant_id: 5,
       order_id: `order-${Date.now()}`,
-       customer_id: req.body.email, 
+       customer_id: Number(Date.now()), 
 
       test: 1,  // тільки для тестув
       title: "Crypto Night Ticket",
