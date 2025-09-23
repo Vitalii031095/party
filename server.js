@@ -63,9 +63,8 @@ app.post("/create-invoice", async (req, res) => {
       price_currency:  "USD",
       merchant_id: 5,
       order_id: `order-${Date.now()}`,
-       customer_id: Number(Date.now()), 
-
-      test: 1,  // тільки для тестув
+      customer_id: Number(Date.now().toString().slice(0, 11)),
+		test: 1,  // тільки для тестув
       title: "Crypto Night Ticket",
       description: "Ticket for private crypto event",
       add_fee_to_price: 1,
