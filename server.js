@@ -115,6 +115,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+console.log("✅ Server is starting...");
 // Створення платежу — новий API Paymento
 app.post("/create-payment", async (req, res) => {
   try {
