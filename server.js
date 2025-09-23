@@ -121,7 +121,7 @@ app.post("/create-payment", async (req, res) => {
     const response = await axios.post(
       "https://api.paymento.io/v1/payment/request",
       {
-        fiatAmount: "333",                // сума у фіаті
+        fiatAmount: "1",                // сума у фіаті
         fiatCurrency: "USD",              // валюта
         ReturnUrl: process.env.SUCCESS_URL || "https://your-site.com/thank-you.html",
         orderId: `order-${Date.now()}`,  // унікальний ID замовлення
