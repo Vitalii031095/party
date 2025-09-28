@@ -8,7 +8,7 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors({
-  origin: 'https://landing.marsof.pp.ua' // заміни на свій домен фронтенд якщо він начий 
+  origin: 'https://blog.marsof.pp.ua' // заміни на свій домен фронтенд якщо він начий 
 }));
 
 app.use(express.json());
